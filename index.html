@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Griot Theatre Featured Shows</title>
+    <link rel="stylesheet" href="TheaterfprojectMadi.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <h1></h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <!-- Updated Shows link to point directly to "A Raisin In The Sun" section -->
+                    <li><a href="#aRaisinInTheSun">Shows</a></li>
+                    <li><a href="https://www.griottheatercompany.org/" target="_blank">About</a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Homepage Section -->
+    <section id="home" class="home-section">
+        <div class="container">
+            <h2>Welcome To The Griot Theater</h2>
+        </div>
+    </section>
+    <main>
+        <section class="show-list">
+            <div class="container">
+                <!-- Added ID for "A Raisin In The Sun" to enable direct navigation from the navbar -->
+                <article id="aRaisinInTheSun" class="flyer">
+                    <h2>A Raisin In The Sun</h2>
+                    <p>April 3, 2020 - March 20, 2020</p>
+                    <p>Griot Theatre 233 State St Chicago, IL</p>
+                    <p>$25</p>
+                    <img src="a-raisin-in-the-sun-theater-1 (1).png" alt="">
+                    <button onclick="openPurchaseModal('A Raisin In The Sun', 25)">Purchase Ticket</button>
+                </article>
+
+                <article class="flyer">
+                    <h2>Sun In The Mist</h2>
+                    <p>April 9, 2020 - March 20, 2020</p>
+                    <p>Griot Theatre 233 State St Chicago, IL</p>
+                    <p>$75</p>
+                    <img src="" alt="">
+                    <button onclick="openPurchaseModal('Sun In The Mist', 75)">Purchase Ticket</button>
+                </article>
+
+                <article class="flyer">
+                    <h2>SunShine</h2>
+                    <p>April 7, 2020 - March 20, 2020</p>
+                    <p>Griot Theatre 233 State St Chicago, IL</p>
+                    <p>$100</p>
+                    <img src="" alt="">
+                    <button onclick="openPurchaseModal('SunShine', 100)">Purchase Ticket</button>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Griot Theatre Company</p>
+        </div>
+    </footer>
+
+    <!-- Purchase Modal -->
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closePurchaseModal()">&times;</span>
+            <h2>Purchase Ticket</h2>
+            <form id="purchaseForm">
+                <input type="hidden" id="showTitle" name="showTitle">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openPurchaseModal(showTitle, price) {
+            document.getElementById('purchaseModal').style.display = 'block';
+            document.getElementById('showTitle').value = showTitle;
+        }
+
+        function closePurchaseModal() {
+            document.getElementById('purchaseModal').style.display = 'none';
+        }
+
+        document.getElementById('purchaseForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            closePurchaseModal();
+            alert('Ticket purchase submitted for ' + document.getElementById('showTitle').value);
+        });
+    </script>
+</body>
+</html>
